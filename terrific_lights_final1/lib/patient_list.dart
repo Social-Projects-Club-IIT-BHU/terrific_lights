@@ -3,10 +3,6 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:terrific_lights_final1/login_screen.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-//import 'package:terrific_lights_final1/patient_info_fill.dart';
-import 'package:terrific_lights_final1/patient_list.dart';
-import 'package:terrific_lights_final1/registration.dart';
-//import 'package:terrific_lights_final1/MapsDemo.dart.dart';
 import 'package:terrific_lights_final1/single_patient_info_doc.dart';
 
 class patient_list extends StatefulWidget {
@@ -70,7 +66,7 @@ class _patient_listState extends State<patient_list> {
     }
   }
 
-  void ConfirmLogOut(BuildContext context) async{
+  void ConfirmLogOut1(BuildContext context) async{
     var alertDialog = AlertDialog(
       title: Text("Log Out?"),
       content: Text("Do you want to log out?"),
@@ -100,9 +96,7 @@ class _patient_listState extends State<patient_list> {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Patient_list',
-      home: Scaffold(
+    return Scaffold(
         appBar: AppBar(
           title: Text('Patient List'),
           backgroundColor: Colors.greenAccent,
@@ -111,11 +105,11 @@ class _patient_listState extends State<patient_list> {
                 icon: const Icon(Icons.exit_to_app),
                 tooltip: 'log out',
                 onPressed: () {
-                   ConfirmLogOut(context);
+                   ConfirmLogOut1(context);
                 },
               ),
           ],
-
+          automaticallyImplyLeading: false,
         ),
         body: FutureBuilder(
             future: _future,
@@ -142,7 +136,7 @@ class _patient_listState extends State<patient_list> {
                     }
                   } else
                     return (Text("The patient list in empty"));
-                  if(no_of_patients==0) return Center(
+                  if(no_of_patients == 0) return Center(
                       child: (Text(
                           "The patient list is empty !",
                           style: TextStyle(
@@ -196,7 +190,6 @@ class _patient_listState extends State<patient_list> {
               );
             }
         ),
-      ),
     );
   }
 
