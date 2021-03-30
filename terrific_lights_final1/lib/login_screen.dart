@@ -4,8 +4,8 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:terrific_lights_final1/patient_info_fill.dart';
 import 'package:terrific_lights_final1/patient_list.dart';
 import 'package:terrific_lights_final1/registration.dart';
-import 'package:terrific_lights_final1/MapsDemo.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:terrific_lights_final1/traffic_police.dart';
 
 class login_screen extends StatefulWidget {
   static const String id = 'logic_screen' ;
@@ -21,7 +21,7 @@ class _login_screenState extends State<login_screen> {
     double width = MediaQuery.of(context).size.width;
     double height = MediaQuery.of(context).size.height;
     return SafeArea(
-      child: Stack(// <-- STACK AS THE SCAFFOLD PARENT
+      child: Stack(
           children: [
             Container(
               decoration: BoxDecoration(
@@ -29,7 +29,7 @@ class _login_screenState extends State<login_screen> {
                   image: AssetImage(
                     'Assets/login_img4.jpg',
                   ),
-                  fit: BoxFit.cover, // <-- BACKGROUND IMAGE fit: BoxFit.cover,
+                  fit: BoxFit.cover,
                 ),
               ),
             ),
@@ -126,11 +126,14 @@ class _login_screenState extends State<login_screen> {
                                             else if (message.data()["profession"] ==
                                                 "emt") {
                                               Navigator.pushNamed(
-                                                  context, patient_info_fill.id);
+                                                  context,
+                                                  patient_info_fill.id);
                                             }
                                             else if (message.data()["profession"] ==
-                                                "driver"){
-                                              Navigator.pushNamed(context, MapsDemo.id);
+                                                "traffic_police") {
+                                              Navigator.pushNamed(
+                                                  context,
+                                                  traffic_police.id);
                                             }
                                             break;
                                           }
