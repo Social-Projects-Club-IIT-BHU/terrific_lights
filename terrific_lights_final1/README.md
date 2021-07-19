@@ -1,7 +1,5 @@
 # terrific_lights_final1
 
-it ezz what it ezz..
-
 ## Getting Started
 
 This project is a starting point for a Flutter application.
